@@ -1,12 +1,15 @@
 #!/usr/bin/python3
-"""Module that fetches https://intranet.hbtn.io/status and displays info
-about the body of the response.
+"""
+Script that fetches https://alu-intranet.hbtn.io/status using requests
+and displays the body of the response formatted with tabulations.
 """
 import requests
 
 
 if __name__ == "__main__":
-    response = requests.get("https://intranet.hbtn.io/status")
+    url = "https://alu-intranet.hbtn.io/status"
+    response = requests.get(url)
+
     print("Body response:")
     print("\t- type: {}".format(type(response.text)))
     print("\t- content: {}".format(response.text))
