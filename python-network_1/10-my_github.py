@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""Module that takes GitHub credentials (username and personal access
-token as password) and uses the GitHub API with Basic Authentication
-to display the id of the authenticated user.
+"""
+Script that takes GitHub credentials (username and personal access token)
+and uses the GitHub API to display the user's ID.
 """
 import requests
 import sys
@@ -9,8 +9,12 @@ import sys
 
 if __name__ == "__main__":
     username = sys.argv[1]
-    password = sys.argv[2]
-
+    token = sys.argv[2]
     url = "https://api.github.com/user"
-    response = requests.get(url, auth=(username, password))
-    print(response.json().get("id"))
+
+    response = requests.get(url, auth=(username, token))
+    try:
+        user_data = response.json()
+        print(user_data.get("id"))
+    except ValueError:
+        print("None")
