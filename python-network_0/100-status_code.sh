@@ -1,3 +1,3 @@
 #!/bin/bash
-# Displays only the status code of a HTTP response without using pipes or redirections
+# Displays only the HTTP status code of the response
 curl -s -o /dev/null -w "%{http_code}" "$1"
