@@ -1,11 +1,15 @@
 #!/usr/bin/python3
-"""Fetches https://intranet.hbtn.io/status."""
+"""
+Script that fetches https://alu-intranet.hbtn.io/status
+and displays the response body formatting.
+"""
 import urllib.request
 
 
 if __name__ == "__main__":
-    request = urllib.request.Request("https://intranet.hbtn.io/status")
-    with urllib.request.urlopen(request) as response:
+    url = "https://alu-intranet.hbtn.io/status"
+    req = urllib.request.Request(url)
+    with urllib.request.urlopen(req) as response:
         body = response.read()
         print("Body response:")
         print("\t- type: {}".format(type(body)))

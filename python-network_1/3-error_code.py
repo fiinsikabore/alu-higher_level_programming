@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """
-Module that takes in a URL, sends a request to the URL,
-and displays the body of the response (decoded in utf-8).
-Handles HTTPError exceptions.
+Script that takes in a URL, sends a request to the URL, and displays
+the body of the response decoded in UTF-8, handling urllib.error.HTTPError.
 """
 import sys
 import urllib.error
@@ -11,9 +10,10 @@ import urllib.request
 
 if __name__ == "__main__":
     url = sys.argv[1]
+
+    req = urllib.request.Request(url)
     try:
-        with urllib.request.urlopen(url) as response:
-            body = response.read().decode('utf-8')
-            print(body)
+        with urllib.request.urlopen(req) as response:
+            print(response.read().decode('utf-8'))
     except urllib.error.HTTPError as e:
         print("Error code: {}".format(e.code))
