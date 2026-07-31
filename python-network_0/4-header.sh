@@ -1,3 +1,3 @@
 #!/bin/bash
-# Sends a GET request to a URL with a custom header
-curl -s -X GET -H "X-HolbertonSchool-User-Id: 98" "$1"
+# Sends a GET request with X-HolbertonSchool-User-Id header
+curl -s -H "X-HolbertonSchool-User-Id: 98" "$1"
