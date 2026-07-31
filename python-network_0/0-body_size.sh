@@ -1,3 +1,4 @@
 #!/bin/bash
-# Displays the size of the body of the response in bytes
-curl -s -o /dev/null -w "%{size_download}\n" "$1"
+# Sends a request to a URL and displays the size of the body of the response in bytes
+curl -sI "$1" | grep -i "Content-Length" | awk '{print $2}'
+EOF
