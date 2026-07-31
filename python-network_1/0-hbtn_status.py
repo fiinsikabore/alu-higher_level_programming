@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Script that fetches https://alu-intranet.hbtn.io/status
-and displays the response body formatting.
+Fetches https://alu-intranet.hbtn.io/status using urllib
+and displays the response body in a specific format.
 """
 import urllib.request
 
